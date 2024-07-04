@@ -11,7 +11,7 @@ contract CounterScript is Script {
         vm.broadcast();
         string memory tokenName = vm.envString("TOKEN_NAME");
         string memory tokenSymbol = vm.envString("TOKEN_SYMBOL");
-        uint256 initialSupply = vm.envUint("INITIAL_SUPPLY");
+        uint256 initialSupply = vm.envUint("INITIAL_SUPPLY") * 1e18;
 
         MyToken erc20 = new MyToken(tokenName, tokenSymbol, initialSupply);
         console.log("Successfully deployed ERC20 to: %", address(erc20));
